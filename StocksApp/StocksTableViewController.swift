@@ -73,7 +73,7 @@ class StocksTableViewController: UITableViewController {
             sortSCRIP.setImage(UIImage(systemName: "arrow.down.circle.fill"), for: .normal)
         }
         sortSCRIP.setTitleColor(.systemBlue, for: .normal)
-        sortSCRIP.frame = CGRect(x: self.view.frame.width * 0.1, y: 0, width: sortSCRIP.intrinsicContentSize.width, height: sortSCRIP.intrinsicContentSize.height)
+        sortSCRIP.frame = CGRect(x: 15, y: 0, width: sortSCRIP.intrinsicContentSize.width, height: sortSCRIP.intrinsicContentSize.height)
         sortSCRIP.addTarget(self, action: #selector(doSortSCRIP), for: .touchUpInside)
         
         sortLTP.setTitle("LTP (₹)", for: .normal)
@@ -83,17 +83,17 @@ class StocksTableViewController: UITableViewController {
             sortLTP.setImage(UIImage(systemName: "arrow.down.circle.fill"), for: .normal)
         }
         sortLTP.setTitleColor(.systemBlue, for: .normal)
-        sortLTP.frame = CGRect(x: self.view.frame.width * 0.4, y: sortSCRIP.frame.minY, width: sortLTP.intrinsicContentSize.width, height: sortLTP.intrinsicContentSize.height)
+        sortLTP.frame = CGRect(x: self.view.frame.width * 0.35, y: sortSCRIP.frame.minY, width: sortLTP.intrinsicContentSize.width, height: sortLTP.intrinsicContentSize.height)
         self.sortLTP.addTarget(self, action: #selector(doSortLTP), for: .touchUpInside)
 
-        sortVol.setTitle("Vol", for: .normal)
+        sortVol.setTitle("VOL", for: .normal)
         if isSortedAscendingVol {
             sortVol.setImage(UIImage(systemName: "arrow.up.circle.fill"), for: .normal)
         } else {
             sortVol.setImage(UIImage(systemName: "arrow.down.circle.fill"), for: .normal)
         }
         sortVol.setTitleColor(.systemBlue, for: .normal)
-        sortVol.frame = CGRect(x: self.view.frame.width * 0.8, y: sortSCRIP.frame.minY, width: sortVol.intrinsicContentSize.width, height: sortVol.intrinsicContentSize.height)
+        sortVol.frame = CGRect(x: self.view.frame.width * 0.67, y: sortSCRIP.frame.minY, width: sortVol.intrinsicContentSize.width, height: sortVol.intrinsicContentSize.height)
         self.sortVol.addTarget(self, action: #selector(doSortVol), for: .touchUpInside)
         
         sortCHG.setTitle("CHG", for: .normal)
@@ -103,7 +103,7 @@ class StocksTableViewController: UITableViewController {
             sortCHG.setImage(UIImage(systemName: "arrow.down.circle.fill"), for: .normal)
         }
         sortCHG.setTitleColor(.systemBlue, for: .normal)
-        sortCHG.frame = CGRect(x: self.view.frame.width * 0.9, y: sortSCRIP.frame.minY, width: sortCHG.intrinsicContentSize.width, height: sortCHG.intrinsicContentSize.height)
+        sortCHG.frame = CGRect(x: self.view.frame.width * 0.83, y: sortSCRIP.frame.minY, width: sortCHG.intrinsicContentSize.width, height: sortCHG.intrinsicContentSize.height)
         self.sortCHG.addTarget(self, action: #selector(doSortCHG), for: .touchUpInside)
         
         let headerView = UIView(frame: CGRect(x: 0, y: 0, width: frame.size.width, height: frame.size.height))
@@ -117,7 +117,7 @@ class StocksTableViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        return sortSCRIP.intrinsicContentSize.height * 1.1
+        return self.view.frame.height * 0.05
     }
     
     @objc func doSortSCRIP() {

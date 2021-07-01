@@ -35,28 +35,28 @@ class ViewController: UIViewController {
         sortSCRIP.setImage(UIImage(systemName: "arrow.up.circle.fill"), for: .normal)
         sortSCRIP.setTitleColor(.systemBlue, for: .normal)
         sortSCRIP.frame = CGRect(x: 15, y: tableViewContainer.frame.minY - 50, width: sortSCRIP.intrinsicContentSize.width, height: sortSCRIP.intrinsicContentSize.height)
-       self.view.addSubview(sortSCRIP)
+//      self.view.addSubview(sortSCRIP)
         sortSCRIP.addTarget(self, action: #selector(doSortSCRIP), for: .touchUpInside)
         
         sortLTP.setTitle("LTP (₹)", for: .normal)
         sortLTP.setImage(UIImage(systemName: "arrow.up.circle.fill"), for: .normal)
         sortLTP.setTitleColor(.systemBlue, for: .normal)
         sortLTP.frame = CGRect(x: self.view.frame.width * 0.25 + 30, y: sortSCRIP.frame.minY, width: sortLTP.intrinsicContentSize.width, height: sortLTP.intrinsicContentSize.height)
-        self.view.addSubview(sortLTP)
+//        self.view.addSubview(sortLTP)
         self.sortLTP.addTarget(self, action: #selector(doSortLTP), for: .touchUpInside)
 
         sortVol.setTitle("Vol", for: .normal)
         sortVol.setImage(UIImage(systemName: "arrow.up.circle.fill"), for: .normal)
         sortVol.setTitleColor(.systemBlue, for: .normal)
         sortVol.frame = CGRect(x: self.view.frame.width * 0.25 + self.view.frame.width * 0.2 + 30 + 30, y: sortSCRIP.frame.minY, width: sortVol.intrinsicContentSize.width, height: sortVol.intrinsicContentSize.height)
-        self.view.addSubview(sortVol)
+//        self.view.addSubview(sortVol)
         self.sortVol.addTarget(self, action: #selector(doSortVol), for: .touchUpInside)
         
         sortCHG.setTitle("CHG", for: .normal)
         sortCHG.setImage(UIImage(systemName: "arrow.up.circle.fill"), for: .normal)
         sortCHG.setTitleColor(.systemBlue, for: .normal)
         sortCHG.frame = CGRect(x: self.view.frame.width * 0.25 + self.view.frame.width * 0.2 + 30 + 30 + self.view.frame.width * 0.1 + 30, y: sortSCRIP.frame.minY, width: sortCHG.intrinsicContentSize.width, height: sortCHG.intrinsicContentSize.height)
-        self.view.addSubview(sortCHG)
+//        self.view.addSubview(sortCHG)
         self.sortCHG.addTarget(self, action: #selector(doSortCHG), for: .touchUpInside)
     }
     
