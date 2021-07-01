@@ -73,7 +73,7 @@ class StocksTableViewController: UITableViewController {
             sortSCRIP.setImage(UIImage(systemName: "arrow.down.circle.fill"), for: .normal)
         }
         sortSCRIP.setTitleColor(.systemBlue, for: .normal)
-        sortSCRIP.frame = CGRect(x: 15, y: 0, width: sortSCRIP.intrinsicContentSize.width, height: sortSCRIP.intrinsicContentSize.height)
+        sortSCRIP.frame = CGRect(x: 15, y: 5, width: sortSCRIP.intrinsicContentSize.width, height: sortSCRIP.intrinsicContentSize.height)
         sortSCRIP.addTarget(self, action: #selector(doSortSCRIP), for: .touchUpInside)
         
         sortLTP.setTitle("LTP (₹)", for: .normal)
@@ -107,7 +107,8 @@ class StocksTableViewController: UITableViewController {
         self.sortCHG.addTarget(self, action: #selector(doSortCHG), for: .touchUpInside)
         
         let headerView = UIView(frame: CGRect(x: 0, y: 0, width: frame.size.width, height: frame.size.height))
-        headerView.backgroundColor = self.view.backgroundColor
+        
+        headerView.backgroundColor = .lightGray.withAlphaComponent(0.3)//self.view.backgroundColor
         headerView.addSubview(sortSCRIP)
         headerView.addSubview(sortLTP)
         headerView.addSubview(sortVol)
