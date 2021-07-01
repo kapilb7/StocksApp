@@ -45,14 +45,12 @@ class ViewController: UIViewController {
         self.view.addSubview(sortLTP)
         self.sortLTP.addTarget(self, action: #selector(doSortLTP), for: .touchUpInside)
 
-        
         sortVol.setTitle("Vol", for: .normal)
         sortVol.setImage(UIImage(systemName: "arrow.up.circle.fill"), for: .normal)
         sortVol.setTitleColor(.systemBlue, for: .normal)
         sortVol.frame = CGRect(x: self.view.frame.width * 0.25 + self.view.frame.width * 0.2 + 30 + 30, y: sortSCRIP.frame.minY, width: sortVol.intrinsicContentSize.width, height: sortVol.intrinsicContentSize.height)
         self.view.addSubview(sortVol)
         self.sortVol.addTarget(self, action: #selector(doSortVol), for: .touchUpInside)
-
         
         sortCHG.setTitle("CHG", for: .normal)
         sortCHG.setImage(UIImage(systemName: "arrow.up.circle.fill"), for: .normal)
@@ -60,9 +58,6 @@ class ViewController: UIViewController {
         sortCHG.frame = CGRect(x: self.view.frame.width * 0.25 + self.view.frame.width * 0.2 + 30 + 30 + self.view.frame.width * 0.1 + 30, y: sortSCRIP.frame.minY, width: sortCHG.intrinsicContentSize.width, height: sortCHG.intrinsicContentSize.height)
         self.view.addSubview(sortCHG)
         self.sortCHG.addTarget(self, action: #selector(doSortCHG), for: .touchUpInside)
-
-
-
     }
     
     @objc func doSortSCRIP() {
@@ -82,10 +77,8 @@ class ViewController: UIViewController {
             stocksList = sorted
             sortSCRIP.setImage(UIImage(systemName: "arrow.up.circle.fill"), for: .normal)
         }
-        
-//        let stocksTableViewController = StocksTableViewController()
-//        stocksTableViewController.reloadTableView()
         NotificationCenter.default.post(name: NSNotification.Name(rawValue: "reloadTableView"), object: nil)
+        
     }
     
     @objc func doSortLTP() {
@@ -107,6 +100,7 @@ class ViewController: UIViewController {
             sortLTP.setImage(UIImage(systemName: "arrow.up.circle.fill"), for: .normal)
         }
         NotificationCenter.default.post(name: NSNotification.Name(rawValue: "reloadTableView"), object: nil)
+        
     }
 
     @objc func doSortVol() {
@@ -128,6 +122,7 @@ class ViewController: UIViewController {
             sortVol.setImage(UIImage(systemName: "arrow.up.circle.fill"), for: .normal)
         }
         NotificationCenter.default.post(name: NSNotification.Name(rawValue: "reloadTableView"), object: nil)
+        
     }
 
     @objc func doSortCHG() {
@@ -148,7 +143,7 @@ class ViewController: UIViewController {
             sortCHG.setImage(UIImage(systemName: "arrow.up.circle.fill"), for: .normal)
         }
         NotificationCenter.default.post(name: NSNotification.Name(rawValue: "reloadTableView"), object: nil)
+        
     }
-
 
 }
