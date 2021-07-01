@@ -45,12 +45,7 @@ class StocksTableViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "stockCell", for: indexPath) as! StockCell
-        
-        //        cell.stockName.text = Stocks.stockNames[indexPath.row]
-        //        cell.stockLTP.text = "\(Stocks.stockLTP[indexPath.row])"
-        //        cell.stockVolume.text = "\(Stocks.stockVolume[indexPath.row])"
-        //        cell.stockPriceChange.text = "\(Stocks.stockPriceChange[indexPath.row])"
-        
+                
         cell.stockName.text = stocksList[indexPath.row]["stockNames"] as! String?
         cell.stockLTP.text = "\(stocksList[indexPath.row]["StockLTP"] as! Int? ?? .zero)"
         cell.stockVolume.text = "\(stocksList[indexPath.row]["StockVolume"] as! Int? ?? .zero)"
@@ -67,17 +62,18 @@ class StocksTableViewController: UITableViewController {
      }
      */
     
-    /*
+    
      // Override to support editing the table view.
      override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
      if editingStyle == .delete {
      // Delete the row from the data source
+         stocksList.remove(at: indexPath.row)
      tableView.deleteRows(at: [indexPath], with: .fade)
      } else if editingStyle == .insert {
      // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
      }
      }
-     */
+     
     
     /*
      // Override to support rearranging the table view.
