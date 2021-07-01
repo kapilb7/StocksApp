@@ -9,6 +9,8 @@ import UIKit
 
 class ViewController: UIViewController {
     
+    var watchlistToggle = UIButton(type: .system)
+    
     var sortSCRIP = UIButton(type: .system)
     var sortLTP = UIButton(type: .system)
     var sortVol = UIButton(type: .system)
@@ -20,17 +22,37 @@ class ViewController: UIViewController {
     var isSortedAscendingVol = false
     var isSortedAscendingCHG = false
     
+    var menuItems: [UIAction] {
+        return [
+            UIAction(title: "Watchlist 1", image: UIImage(systemName: "sun.max"), handler: { (_) in
+            }),
+            UIAction(title: "Watchlist 2", image: UIImage(systemName: "moon"), handler: { (_) in
+            }),
+            UIAction(title: "Watchlist 3", image: UIImage(systemName: "trash"), handler: { (_) in
+            })
+        ]
+    }
+
+    var demoMenu: UIMenu {
+        return UIMenu(title: "Stock Lists", image: nil, identifier: nil, options: [], children: menuItems)
+    }
+        
     override func viewDidLoad() {
         super.viewDidLoad()
+        var configuration = UIButton.Configuration.tinted()
+        configuration.title = "Watchlist 1"
+        configuration.image = UIImage(systemName: "chevron.down")
+        configuration.imagePadding = 5
+
+        watchlistToggle = UIButton(configuration: configuration, primaryAction: nil)
+        watchlistToggle.frame = CGRect(x: self.view.frame.width * 0.5 - watchlistToggle.intrinsicContentSize.width * 0.5, y: self.view.frame.height * 0.1, width: watchlistToggle.intrinsicContentSize.width, height: watchlistToggle.intrinsicContentSize.height)
+        watchlistToggle.menu = demoMenu
+        watchlistToggle.showsMenuAsPrimaryAction = true
+        self.view.addSubview(watchlistToggle)
         
 //        tableViewContainer.layer.borderColor = UIColor.green.cgColor
 //        tableViewContainer.layer.borderWidth = 5
-        
-//        var b = UIButton(configuration: test)
-//        b.frame =  CGRect(x: 15, y: tableViewContainer.frame.minY - 50, width: sortSCRIP.intrinsicContentSize.width * 2.5, height: sortSCRIP.intrinsicContentSize.height)
-//        b.addTarget(self, action: #selector(doSortSCRIP), for: .touchUpInside)
-//        self.view.addSubview(b)
-                
+                        
         sortSCRIP.setTitle("SCRIP", for: .normal)
         sortSCRIP.setImage(UIImage(systemName: "arrow.up.circle.fill"), for: .normal)
         sortSCRIP.setTitleColor(.systemBlue, for: .normal)

@@ -8,7 +8,7 @@
 import UIKit
 
 class StocksTableViewController: UITableViewController {
-    
+        
     var sortSCRIP = UIButton(type: .system)
     var sortLTP = UIButton(type: .system)
     var sortVol = UIButton(type: .system)
@@ -18,10 +18,10 @@ class StocksTableViewController: UITableViewController {
     var isSortedAscendingLTP = true
     var isSortedAscendingVol = true
     var isSortedAscendingCHG = true
-    
+        
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+            
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
         
@@ -32,6 +32,10 @@ class StocksTableViewController: UITableViewController {
         //        tableView.backgroundColor = .black
         
         NotificationCenter.default.addObserver(self, selector: #selector(self.reloadTableView), name: NSNotification.Name(rawValue: "reloadTableView"), object: nil)
+        
+//        tableView.layer.borderColor = UIColor.white.cgColor
+//        tableView.layer.borderWidth = 5
+        
     }
     
     @objc func reloadTableView() {
@@ -113,7 +117,9 @@ class StocksTableViewController: UITableViewController {
         headerView.addSubview(sortLTP)
         headerView.addSubview(sortVol)
         headerView.addSubview(sortCHG)
-        
+//        headerView.layer.borderColor = UIColor.white.cgColor
+//        headerView.layer.borderWidth = 5
+
         return headerView
     }
     

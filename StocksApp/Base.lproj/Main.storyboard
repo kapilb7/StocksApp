@@ -12,7 +12,7 @@
         <scene sceneID="kXm-df-g8f">
             <objects>
                 <tableViewController id="S9w-BC-bhe" customClass="StocksTableViewController" customModule="StocksApp" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" id="0KB-Gn-rng">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" scrollEnabled="NO" dataMode="prototypes" style="plain" separatorStyle="default" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" id="0KB-Gn-rng">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="672"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -96,14 +96,22 @@
                                     <segue destination="S9w-BC-bhe" kind="embed" id="pse-yv-Ec6"/>
                                 </connections>
                             </containerView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ZxI-yy-KeY">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="190"/>
+                                <color key="backgroundColor" systemColor="systemIndigoColor"/>
+                            </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
+                            <constraint firstAttribute="trailing" secondItem="ZxI-yy-KeY" secondAttribute="trailing" id="ASH-JP-sEt"/>
+                            <constraint firstItem="ZxI-yy-KeY" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="EKF-aF-kLU"/>
                             <constraint firstItem="Zpx-sI-h26" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="IBH-Ae-av6"/>
+                            <constraint firstItem="Zpx-sI-h26" firstAttribute="top" secondItem="ZxI-yy-KeY" secondAttribute="bottom" id="LvK-j5-aCE"/>
                             <constraint firstItem="Zpx-sI-h26" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="QBz-7S-Ltd"/>
                             <constraint firstItem="Zpx-sI-h26" firstAttribute="height" secondItem="8bC-Xf-vdC" secondAttribute="height" multiplier="0.75" id="h0b-k9-XZ5"/>
                             <constraint firstItem="Zpx-sI-h26" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="k2L-1f-eAB"/>
+                            <constraint firstItem="ZxI-yy-KeY" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="lhX-eq-s74"/>
                         </constraints>
                     </view>
                     <connections>
@@ -118,6 +126,9 @@
     <resources>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemIndigoColor">
+            <color red="0.34509803921568627" green="0.33725490196078434" blue="0.83921568627450982" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>
