@@ -62,4 +62,48 @@ var stocksList = [
     ]
 ]
 
+var stocksListTwo = [
+    [
+        "stockNames" : "AAPL",
+        "StockLTP" : 136,
+        "StockVolume" : 5517,
+        "StockPriceChange" : +0.7
+    ],
+    [
+        "stockNames" : "UBER",
+        "StockLTP" : 3476,
+        "StockVolume" : 1239,
+        "StockPriceChange" : +0.3
+    ],
+    [
+        "stockNames" : "BABA",
+        "StockLTP" : 4802,
+        "StockVolume" : 235,
+        "StockPriceChange" : +0.4
+    ],
+    [
+        "stockNames" : "PYPL",
+        "StockLTP" : 150,
+        "StockVolume" : 8976,
+        "StockPriceChange" : -0.5
+    ],
+    [
+        "stockNames" : "MANU",
+        "StockLTP" : 129,
+        "StockVolume" : 5640,
+        "StockPriceChange" : +0.9
+    ],
+    [
+        "stockNames" : "TSLA",
+        "StockLTP" : 765,
+        "StockVolume" : 4598,
+        "StockPriceChange" : +0.1
+    ],
+    [
+        "stockNames" : "SNAP",
+        "StockLTP" : 543,
+        "StockVolume" : 4219,
+        "StockPriceChange" : -0.7
+    ]
+]
 
