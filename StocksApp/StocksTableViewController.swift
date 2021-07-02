@@ -36,6 +36,58 @@ class StocksTableViewController: UITableViewController {
 //        tableView.layer.borderColor = UIColor.white.cgColor
 //        tableView.layer.borderWidth = 5
         
+        
+        let frame = tableView.frame
+
+        sortSCRIP.setTitle("SCRIP", for: .normal)
+        if isSortedAscendingSCRIP {
+            sortSCRIP.setImage(UIImage(systemName: "arrow.up.circle.fill"), for: .normal)
+        } else {
+            sortSCRIP.setImage(UIImage(systemName: "arrow.down.circle.fill"), for: .normal)
+        }
+        sortSCRIP.setTitleColor(.systemBlue, for: .normal)
+        sortSCRIP.frame = CGRect(x: 15, y: self.view.frame.height * 0.05 * 0.5 - sortSCRIP.intrinsicContentSize.height * 0.5, width: sortSCRIP.intrinsicContentSize.width, height: sortSCRIP.intrinsicContentSize.height)
+        sortSCRIP.addTarget(self, action: #selector(doSortSCRIP), for: .touchUpInside)
+
+        sortLTP.setTitle("LTP (₹)", for: .normal)
+        if isSortedAscendingLTP {
+            sortLTP.setImage(UIImage(systemName: "arrow.up.circle.fill"), for: .normal)
+        } else {
+            sortLTP.setImage(UIImage(systemName: "arrow.down.circle.fill"), for: .normal)
+        }
+        sortLTP.setTitleColor(.systemBlue, for: .normal)
+        sortLTP.frame = CGRect(x: self.view.frame.width * 0.35, y: sortSCRIP.frame.minY, width: sortLTP.intrinsicContentSize.width, height: sortLTP.intrinsicContentSize.height)
+        self.sortLTP.addTarget(self, action: #selector(doSortLTP), for: .touchUpInside)
+
+        sortVol.setTitle("VOL", for: .normal)
+        if isSortedAscendingVol {
+            sortVol.setImage(UIImage(systemName: "arrow.up.circle.fill"), for: .normal)
+        } else {
+            sortVol.setImage(UIImage(systemName: "arrow.down.circle.fill"), for: .normal)
+        }
+        sortVol.setTitleColor(.systemBlue, for: .normal)
+        sortVol.frame = CGRect(x: self.view.frame.width * 0.67, y: sortSCRIP.frame.minY, width: sortVol.intrinsicContentSize.width, height: sortVol.intrinsicContentSize.height)
+        self.sortVol.addTarget(self, action: #selector(doSortVol), for: .touchUpInside)
+
+        sortCHG.setTitle("CHG", for: .normal)
+        if isSortedAscendingCHG {
+            sortCHG.setImage(UIImage(systemName: "arrow.up.circle.fill"), for: .normal)
+        } else {
+            sortCHG.setImage(UIImage(systemName: "arrow.down.circle.fill"), for: .normal)
+        }
+        sortCHG.setTitleColor(.systemBlue, for: .normal)
+        sortCHG.frame = CGRect(x: self.view.frame.width * 0.83, y: sortSCRIP.frame.minY, width: sortCHG.intrinsicContentSize.width, height: sortCHG.intrinsicContentSize.height)
+        self.sortCHG.addTarget(self, action: #selector(doSortCHG), for: .touchUpInside)
+
+        let headerView = UIView(frame: CGRect(x: 0, y: 0, width: frame.size.width, height: self.view.frame.height * 0.05))
+
+        headerView.backgroundColor = .lightGray.withAlphaComponent(0.3)//self.view.backgroundColor
+        headerView.addSubview(sortSCRIP)
+        headerView.addSubview(sortLTP)
+        headerView.addSubview(sortVol)
+        headerView.addSubview(sortCHG)
+        tableView.tableHeaderView = headerView
+        
     }
     
     @objc func reloadTableView() {
@@ -67,61 +119,61 @@ class StocksTableViewController: UITableViewController {
         return cell
     }
     
-    override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        let frame = tableView.frame
-        
-        sortSCRIP.setTitle("SCRIP", for: .normal)
-        if isSortedAscendingSCRIP {
-            sortSCRIP.setImage(UIImage(systemName: "arrow.up.circle.fill"), for: .normal)
-        } else {
-            sortSCRIP.setImage(UIImage(systemName: "arrow.down.circle.fill"), for: .normal)
-        }
-        sortSCRIP.setTitleColor(.systemBlue, for: .normal)
-        sortSCRIP.frame = CGRect(x: 15, y: 5, width: sortSCRIP.intrinsicContentSize.width, height: sortSCRIP.intrinsicContentSize.height)
-        sortSCRIP.addTarget(self, action: #selector(doSortSCRIP), for: .touchUpInside)
-        
-        sortLTP.setTitle("LTP (₹)", for: .normal)
-        if isSortedAscendingLTP {
-            sortLTP.setImage(UIImage(systemName: "arrow.up.circle.fill"), for: .normal)
-        } else {
-            sortLTP.setImage(UIImage(systemName: "arrow.down.circle.fill"), for: .normal)
-        }
-        sortLTP.setTitleColor(.systemBlue, for: .normal)
-        sortLTP.frame = CGRect(x: self.view.frame.width * 0.35, y: sortSCRIP.frame.minY, width: sortLTP.intrinsicContentSize.width, height: sortLTP.intrinsicContentSize.height)
-        self.sortLTP.addTarget(self, action: #selector(doSortLTP), for: .touchUpInside)
-
-        sortVol.setTitle("VOL", for: .normal)
-        if isSortedAscendingVol {
-            sortVol.setImage(UIImage(systemName: "arrow.up.circle.fill"), for: .normal)
-        } else {
-            sortVol.setImage(UIImage(systemName: "arrow.down.circle.fill"), for: .normal)
-        }
-        sortVol.setTitleColor(.systemBlue, for: .normal)
-        sortVol.frame = CGRect(x: self.view.frame.width * 0.67, y: sortSCRIP.frame.minY, width: sortVol.intrinsicContentSize.width, height: sortVol.intrinsicContentSize.height)
-        self.sortVol.addTarget(self, action: #selector(doSortVol), for: .touchUpInside)
-        
-        sortCHG.setTitle("CHG", for: .normal)
-        if isSortedAscendingCHG {
-            sortCHG.setImage(UIImage(systemName: "arrow.up.circle.fill"), for: .normal)
-        } else {
-            sortCHG.setImage(UIImage(systemName: "arrow.down.circle.fill"), for: .normal)
-        }
-        sortCHG.setTitleColor(.systemBlue, for: .normal)
-        sortCHG.frame = CGRect(x: self.view.frame.width * 0.83, y: sortSCRIP.frame.minY, width: sortCHG.intrinsicContentSize.width, height: sortCHG.intrinsicContentSize.height)
-        self.sortCHG.addTarget(self, action: #selector(doSortCHG), for: .touchUpInside)
-        
-        let headerView = UIView(frame: CGRect(x: 0, y: 0, width: frame.size.width, height: frame.size.height))
-        
-        headerView.backgroundColor = .lightGray.withAlphaComponent(0.3)//self.view.backgroundColor
-        headerView.addSubview(sortSCRIP)
-        headerView.addSubview(sortLTP)
-        headerView.addSubview(sortVol)
-        headerView.addSubview(sortCHG)
-//        headerView.layer.borderColor = UIColor.white.cgColor
-//        headerView.layer.borderWidth = 5
-
-        return headerView
-    }
+//    override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+//        let frame = tableView.frame
+//
+//        sortSCRIP.setTitle("SCRIP", for: .normal)
+//        if isSortedAscendingSCRIP {
+//            sortSCRIP.setImage(UIImage(systemName: "arrow.up.circle.fill"), for: .normal)
+//        } else {
+//            sortSCRIP.setImage(UIImage(systemName: "arrow.down.circle.fill"), for: .normal)
+//        }
+//        sortSCRIP.setTitleColor(.systemBlue, for: .normal)
+//        sortSCRIP.frame = CGRect(x: 15, y: 5, width: sortSCRIP.intrinsicContentSize.width, height: sortSCRIP.intrinsicContentSize.height)
+//        sortSCRIP.addTarget(self, action: #selector(doSortSCRIP), for: .touchUpInside)
+//
+//        sortLTP.setTitle("LTP (₹)", for: .normal)
+//        if isSortedAscendingLTP {
+//            sortLTP.setImage(UIImage(systemName: "arrow.up.circle.fill"), for: .normal)
+//        } else {
+//            sortLTP.setImage(UIImage(systemName: "arrow.down.circle.fill"), for: .normal)
+//        }
+//        sortLTP.setTitleColor(.systemBlue, for: .normal)
+//        sortLTP.frame = CGRect(x: self.view.frame.width * 0.35, y: sortSCRIP.frame.minY, width: sortLTP.intrinsicContentSize.width, height: sortLTP.intrinsicContentSize.height)
+//        self.sortLTP.addTarget(self, action: #selector(doSortLTP), for: .touchUpInside)
+//
+//        sortVol.setTitle("VOL", for: .normal)
+//        if isSortedAscendingVol {
+//            sortVol.setImage(UIImage(systemName: "arrow.up.circle.fill"), for: .normal)
+//        } else {
+//            sortVol.setImage(UIImage(systemName: "arrow.down.circle.fill"), for: .normal)
+//        }
+//        sortVol.setTitleColor(.systemBlue, for: .normal)
+//        sortVol.frame = CGRect(x: self.view.frame.width * 0.67, y: sortSCRIP.frame.minY, width: sortVol.intrinsicContentSize.width, height: sortVol.intrinsicContentSize.height)
+//        self.sortVol.addTarget(self, action: #selector(doSortVol), for: .touchUpInside)
+//
+//        sortCHG.setTitle("CHG", for: .normal)
+//        if isSortedAscendingCHG {
+//            sortCHG.setImage(UIImage(systemName: "arrow.up.circle.fill"), for: .normal)
+//        } else {
+//            sortCHG.setImage(UIImage(systemName: "arrow.down.circle.fill"), for: .normal)
+//        }
+//        sortCHG.setTitleColor(.systemBlue, for: .normal)
+//        sortCHG.frame = CGRect(x: self.view.frame.width * 0.83, y: sortSCRIP.frame.minY, width: sortCHG.intrinsicContentSize.width, height: sortCHG.intrinsicContentSize.height)
+//        self.sortCHG.addTarget(self, action: #selector(doSortCHG), for: .touchUpInside)
+//
+//        let headerView = UIView(frame: CGRect(x: 0, y: 0, width: frame.size.width, height: self.view.frame.height * 0.05))
+//
+//        headerView.backgroundColor = .lightGray.withAlphaComponent(0.3)//self.view.backgroundColor
+//        headerView.addSubview(sortSCRIP)
+//        headerView.addSubview(sortLTP)
+//        headerView.addSubview(sortVol)
+//        headerView.addSubview(sortCHG)
+////        headerView.layer.borderColor = UIColor.white.cgColor
+////        headerView.layer.borderWidth = 5
+//
+//        return headerView
+//    }
     
     override func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         return self.view.frame.height * 0.05
